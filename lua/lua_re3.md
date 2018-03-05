@@ -343,13 +343,13 @@ typedef struct {
 `TableItem`描述了Table的键`key`与值`value`的类型与具体的数据内容，它的开始处是一个uleb128类型的`tp`字段，具体的取值类型如下：
 ```
 typedef enum<uchar> {
-    BCDUMP_KGC_CHILD = 0,
-    BCDUMP_KGC_TAB = 1,
-    BCDUMP_KGC_I64 = 2,
-    BCDUMP_KGC_U64 = 3,
-    BCDUMP_KGC_COMPLEX = 4,
-    BCDUMP_KGC_STR = 5
-} BCDUMP_KGC_TYPE;
+    BCDUMP_KTAB_NIL = 0,
+    BCDUMP_KTAB_FALSE = 1,
+    BCDUMP_KTAB_TRUE = 2,
+    BCDUMP_KTAB_INT = 3,
+    BCDUMP_KTAB_NUM = 4,
+    BCDUMP_KTAB_STR = 5
+} BCDUMP_KTAB_TYPE;
 ```
 
 当取到`tp`的类型值后，判断它的具体类型，然后接下来存放的即是具体的数据，`TableItem`在`010 Editor`中的模板结构体表示如下:
